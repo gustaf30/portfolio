@@ -4,27 +4,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Personal portfolio website for Gustavo Ferraz — a modern, performant, responsive showcase of projects, skills, and professional background. Full spec lives in `prd-portfolio.md`.
+Personal portfolio website for Gustavo Ferraz — a modern, performant, responsive showcase of projects, skills, and professional background. Full spec lives in `docs/prd-portfolio.md`.
 
 ## Tech Stack
 
-- **Framework:** Next.js 14+ with App Router (SSR/SSG)
+- **Framework:** Next.js 16 with App Router, Turbopack (SSR/SSG)
 - **Language:** TypeScript (strict mode)
-- **Styling:** Tailwind CSS
+- **Styling:** Tailwind CSS v4 (CSS-first `@theme` config in `globals.css`, no `tailwind.config.ts`)
 - **Animations:** Framer Motion (respect `prefers-reduced-motion`)
 - **Content:** MDX or Contentlayer for project pages
 - **i18n:** `next-intl` — PT-BR default, English secondary
 - **Forms:** Resend or EmailJS (no dedicated backend)
 - **Deploy:** Vercel with CI/CD and preview deploys
+- **Code Quality:** ESLint (flat config) + Prettier
 
 ## Commands
 
 ```bash
-npm run dev          # Start dev server (localhost:3000)
+npm run dev          # Start dev server with Turbopack (localhost:3000)
 npm run build        # Production build
 npm run start        # Start production server
 npm run lint         # ESLint
 npm run type-check   # TypeScript compiler check (tsc --noEmit)
+npm run format       # Prettier — format all src/ files
+npm run format:check # Prettier — check formatting (CI)
 ```
 
 ## Architecture
@@ -51,7 +54,7 @@ src/app/
 
 - **Dark theme default** with light mode toggle
 - **Palette:** background `#0A0A0F`, accent `#4361EE`, text `#E0E0E0`
-- **Typography:** Inter/Geist for body, JetBrains Mono for code snippets
+- **Typography:** Geist Sans for body (`--font-sans`), JetBrains Mono for code (`--font-mono`)
 - **Mobile-first** breakpoints: mobile (<768px), tablet (768–1024px), desktop (>1024px)
 
 ### Core Sections (Priority Order)
