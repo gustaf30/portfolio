@@ -1,26 +1,25 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Brand Colors */
+  --color-background: #0A0A0F;
+  --color-foreground: #E0E0E0;
+  --color-accent: #4361EE;
+  --color-accent-light: #6B83F2;
+  --color-accent-dark: #2D47C9;
+  --color-surface: #12121A;
+  --color-surface-light: #1A1A2E;
+  --color-surface-lighter: #2A2A3E;
+  --color-muted: #8888AA;
+  --color-border: #2A2A3E;
+
+  /* Fonts — CSS variables set by next/font in layout.tsx */
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Base styles — dark theme as default */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
 }
