@@ -16,10 +16,12 @@
     "mainNavAriaLabel": "Navegação principal",
     "closeMenu": "Fechar menu",
     "openMenu": "Abrir menu",
-    "backToTop": "Voltar ao topo"
+    "backToTop": "Voltar ao topo",
+    "switchToLight": "Mudar para tema claro",
+    "switchToDark": "Mudar para tema escuro"
   },
   "hero": {
-    "roleTag": "<full-stack developer />",
+    "roleTag": "full-stack developer",
     "tagline": "Construindo soluções web modernas com TypeScript, React e Node.js",
     "viewProjects": "Ver Projetos",
     "contactCta": "Entrar em Contato",

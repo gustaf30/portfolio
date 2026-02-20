@@ -55,7 +55,9 @@ export function Hero() {
           variants={fadeUp}
           className="mb-6 font-mono text-sm tracking-wider text-accent"
         >
+          {"<"}
           {t("roleTag")}
+          {" />"}
         </motion.p>
 
         {/* Name — Bricolage Grotesque display with blur entrance */}
