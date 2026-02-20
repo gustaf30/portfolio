@@ -1,0 +1,141 @@
+{
+  "metadata": {
+    "title": "Gustavo Ferraz — Full Stack Developer",
+    "description": "Personal portfolio of Gustavo Ferraz. Projects, technical skills, and contact information."
+  },
+  "layout": {
+    "skipToContent": "Skip to content"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "experience": "Experience",
+    "contact": "Contact",
+    "mainNavAriaLabel": "Main navigation",
+    "closeMenu": "Close menu",
+    "openMenu": "Open menu",
+    "backToTop": "Back to top"
+  },
+  "hero": {
+    "roleTag": "<full-stack developer />",
+    "tagline": "Building modern web solutions with TypeScript, React, and Node.js",
+    "viewProjects": "View Projects",
+    "contactCta": "Get in Touch",
+    "scrollDown": "Scroll down"
+  },
+  "about": {
+    "sectionLabel": "01 — About",
+    "sectionTitle": "About Me",
+    "bio1": "I'm a full stack developer passionate about building modern, high-performance web solutions. I have experience with TypeScript, React, Node.js, and Python, and I always strive to apply software engineering best practices in every project.",
+    "bio2": "Currently studying Computer Science at UTFPR (Federal University of Technology — Paraná).",
+    "degree": "Computer Science",
+    "university": "UTFPR — Ponta Grossa, PR",
+    "interestsLabel": "Interests",
+    "chess": "Chess",
+    "games": "Games",
+    "travel": "Travel"
+  },
+  "projects": {
+    "sectionLabel": "02 — Projects",
+    "sectionTitle": "Projects",
+    "codeLink": "Code",
+    "demoLink": "Demo",
+    "detailsLink": "View details →",
+    "backLink": "Back to projects",
+    "repositoryLink": "Repository",
+    "cheerconnect": {
+      "title": "CheerConnect",
+      "description": "Vertical social network for the Brazilian cheerleading community."
+    },
+    "accodal": {
+      "title": "Tax System",
+      "description": "Platform for automatic extraction and visualization of tax documents."
+    },
+    "valor-disparador": {
+      "title": "Valor — Payment Slip Dispatcher",
+      "description": "Bank payment slip dispatch system with process automation for a family business."
+    },
+    "nexus": {
+      "title": "Nexus Hub",
+      "description": "Experimental platform to centralize tools I use/used at work, like Gmail, Jira, Slack, etc."
+    }
+  },
+  "skills": {
+    "sectionLabel": "03 — Skills",
+    "sectionTitle": "Skills & Technologies",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Database",
+      "devops": "DevOps",
+      "tools": "Tools"
+    }
+  },
+  "timeline": {
+    "sectionLabel": "04 — Experience",
+    "sectionTitle": "Experience",
+    "events": {
+      "cs_degree": {
+        "date": "2021 — Present",
+        "title": "Computer Science — UTFPR",
+        "location": "Ponta Grossa — PR",
+        "description": "Bachelor's degree in Computer Science at the Federal University of Technology — Paraná."
+      },
+      "internship": {
+        "date": "2024",
+        "title": "Full Stack Intern",
+        "location": "Remote — Ponta Grossa, PR",
+        "description": "Participated in a hiring process with a technical project demonstrating TypeScript and React skills."
+      },
+      "cheerconnect_tcc": {
+        "date": "2025",
+        "title": "CheerConnect — Senior Thesis",
+        "description": "Development of the senior thesis project: a social network for the Brazilian cheerleading community."
+      },
+      "portfolio": {
+        "date": "2025",
+        "title": "Personal Portfolio",
+        "description": "Development of a professional portfolio with Next.js, TypeScript, and Tailwind CSS."
+      },
+      "fiscal_system": {
+        "date": "2026",
+        "title": "Automated Tax System",
+        "description": "Participated in a hiring process with a technical project demonstrating TypeScript and React skills."
+      },
+      "accodal": {
+        "date": "2026",
+        "title": "Low-Code Full Stack Developer",
+        "location": "Remote — Sacramento, California",
+        "description": "Full Stack Low-Code Developer at Accodal"
+      }
+    }
+  },
+  "contact": {
+    "sectionLabel": "05 — Contact",
+    "sectionTitle": "Contact",
+    "description": "Interested in working together? Reach out via email or social media. I'm available for remote or hybrid work opportunities.",
+    "location1": "Ponta Grossa, PR — Brazil",
+    "location2": "Nova Odessa, SP — Brazil",
+    "nameLabel": "Name",
+    "namePlaceholder": "Your name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "your@email.com",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Your message...",
+    "sending": "Sending...",
+    "sendMessage": "Send Message",
+    "successMessage": "Message sent successfully!",
+    "errorMessage": "Failed to send. Please try again.",
+    "notConfiguredError": "Email service not configured. Please contact directly.",
+    "infoConfigured": "Your message will be sent via email.",
+    "infoNotConfigured": "Email sending will be enabled soon."
+  },
+  "footer": {
+    "copyright": "© {year} Gustavo Ferraz"
+  },
+  "jsonLd": {
+    "jobTitle": "Full Stack Developer"
+  }
+}

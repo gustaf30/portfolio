@@ -1,0 +1,141 @@
+{
+  "metadata": {
+    "title": "Gustavo Ferraz — Desenvolvedor Full Stack",
+    "description": "Portfolio pessoal de Gustavo Ferraz. Projetos, habilidades técnicas e formas de contato."
+  },
+  "layout": {
+    "skipToContent": "Pular para o conteúdo"
+  },
+  "nav": {
+    "home": "Início",
+    "about": "Sobre",
+    "projects": "Projetos",
+    "skills": "Skills",
+    "experience": "Experiência",
+    "contact": "Contato",
+    "mainNavAriaLabel": "Navegação principal",
+    "closeMenu": "Fechar menu",
+    "openMenu": "Abrir menu",
+    "backToTop": "Voltar ao topo"
+  },
+  "hero": {
+    "roleTag": "<full-stack developer />",
+    "tagline": "Construindo soluções web modernas com TypeScript, React e Node.js",
+    "viewProjects": "Ver Projetos",
+    "contactCta": "Entrar em Contato",
+    "scrollDown": "Rolar para baixo"
+  },
+  "about": {
+    "sectionLabel": "01 — Sobre",
+    "sectionTitle": "Sobre Mim",
+    "bio1": "Sou um desenvolvedor full stack apaixonado por criar soluções web modernas e performáticas. Tenho experiência com TypeScript, React, Node.js e Python, e busco sempre aplicar boas práticas de engenharia de software em cada projeto.",
+    "bio2": "Atualmente cursando Ciência da Computação na UTFPR (Universidade Tecnológica Federal do Paraná).",
+    "degree": "Ciência da Computação",
+    "university": "UTFPR — Ponta Grossa, PR",
+    "interestsLabel": "Interesses",
+    "chess": "Xadrez",
+    "games": "Games",
+    "travel": "Viagens"
+  },
+  "projects": {
+    "sectionLabel": "02 — Projetos",
+    "sectionTitle": "Projetos",
+    "codeLink": "Código",
+    "demoLink": "Demo",
+    "detailsLink": "Ver detalhes →",
+    "backLink": "Voltar aos projetos",
+    "repositoryLink": "Repositório",
+    "cheerconnect": {
+      "title": "CheerConnect",
+      "description": "Rede social vertical para a comunidade brasileira de cheerleading."
+    },
+    "accodal": {
+      "title": "Tax System",
+      "description": "Plataforma para extração automática de informações e visualização de documentos fiscais."
+    },
+    "valor-disparador": {
+      "title": "Valor — Disparador de Boletos",
+      "description": "Sistema de disparo de boletos bancários com automação de processos para empresa familiar."
+    },
+    "nexus": {
+      "title": "Nexus Hub",
+      "description": "Plataforma experimental para centralizar plataformas que uso/usei no trabalho, como Gmail, Jira, Slack, etc."
+    }
+  },
+  "skills": {
+    "sectionLabel": "03 — Skills",
+    "sectionTitle": "Skills & Tecnologias",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Banco de Dados",
+      "devops": "DevOps",
+      "tools": "Ferramentas"
+    }
+  },
+  "timeline": {
+    "sectionLabel": "04 — Experiência",
+    "sectionTitle": "Experiência",
+    "events": {
+      "cs_degree": {
+        "date": "2021 — Presente",
+        "title": "Ciência da Computação — UTFPR",
+        "location": "Ponta Grossa — PR",
+        "description": "Bacharelado em Ciência da Computação na Universidade Tecnológica Federal do Paraná."
+      },
+      "internship": {
+        "date": "2024",
+        "title": "Estagiário Full Stack",
+        "location": "Remoto — Ponta Grossa, PR",
+        "description": "Participação em processo seletivo com projeto técnico demonstrando habilidades em TypeScript e React."
+      },
+      "cheerconnect_tcc": {
+        "date": "2025",
+        "title": "CheerConnect — TCC",
+        "description": "Desenvolvimento do trabalho de conclusão de curso: rede social para a comunidade de cheerleading brasileira."
+      },
+      "portfolio": {
+        "date": "2025",
+        "title": "Portfolio Pessoal",
+        "description": "Desenvolvimento do portfolio profissional com Next.js, TypeScript e Tailwind CSS."
+      },
+      "fiscal_system": {
+        "date": "2026",
+        "title": "Sistema Fiscal Automatizado",
+        "description": "Participação em processo seletivo com projeto técnico demonstrando habilidades em TypeScript e React."
+      },
+      "accodal": {
+        "date": "2026",
+        "title": "Low-Code Full Stack Developer",
+        "location": "Remoto — Sacramento, California",
+        "description": "Desenvolvedor Full Stack Low-Code na Accodal"
+      }
+    }
+  },
+  "contact": {
+    "sectionLabel": "05 — Contato",
+    "sectionTitle": "Contato",
+    "description": "Interessado em trabalhar juntos? Entre em contato por e-mail ou pelas redes sociais. Estou disponível para oportunidades de trabalho remoto ou híbrido.",
+    "location1": "Ponta Grossa, PR — Brasil",
+    "location2": "Nova Odessa, SP — Brasil",
+    "nameLabel": "Nome",
+    "namePlaceholder": "Seu nome",
+    "emailLabel": "E-mail",
+    "emailPlaceholder": "seu@email.com",
+    "messageLabel": "Mensagem",
+    "messagePlaceholder": "Sua mensagem...",
+    "sending": "Enviando...",
+    "sendMessage": "Enviar Mensagem",
+    "successMessage": "Mensagem enviada com sucesso!",
+    "errorMessage": "Erro ao enviar. Tente novamente.",
+    "notConfiguredError": "Envio de e-mail não configurado. Entre em contato diretamente.",
+    "infoConfigured": "Sua mensagem será enviada por e-mail.",
+    "infoNotConfigured": "Envio funcional será ativado em breve."
+  },
+  "footer": {
+    "copyright": "© {year} Gustavo Ferraz"
+  },
+  "jsonLd": {
+    "jobTitle": "Desenvolvedor Full Stack"
+  }
+}
