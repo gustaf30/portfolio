@@ -5,6 +5,7 @@ import { ThemeProvider, ThemeScript } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { JsonLd } from "@/components/json-ld";
+import { Analytics } from "@vercel/analytics/next";
 import { siteConfig } from "@/lib/metadata";
 import "./globals.css";
 
@@ -85,6 +86,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
