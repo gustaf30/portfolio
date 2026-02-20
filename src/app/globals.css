@@ -68,14 +68,30 @@ html.theme-transitioning *::after {
 }
 
 /* Stagger delays per section for top→bottom cascade */
-html.theme-transitioning nav { transition-delay: 0ms !important; }
-html.theme-transitioning #hero { transition-delay: 100ms !important; }
-html.theme-transitioning #about { transition-delay: 250ms !important; }
-html.theme-transitioning #projects { transition-delay: 400ms !important; }
-html.theme-transitioning #skills { transition-delay: 550ms !important; }
-html.theme-transitioning #timeline { transition-delay: 700ms !important; }
-html.theme-transitioning #contact { transition-delay: 850ms !important; }
-html.theme-transitioning footer { transition-delay: 950ms !important; }
+html.theme-transitioning nav {
+  transition-delay: 0ms !important;
+}
+html.theme-transitioning #hero {
+  transition-delay: 100ms !important;
+}
+html.theme-transitioning #about {
+  transition-delay: 250ms !important;
+}
+html.theme-transitioning #projects {
+  transition-delay: 400ms !important;
+}
+html.theme-transitioning #skills {
+  transition-delay: 550ms !important;
+}
+html.theme-transitioning #timeline {
+  transition-delay: 700ms !important;
+}
+html.theme-transitioning #contact {
+  transition-delay: 850ms !important;
+}
+html.theme-transitioning footer {
+  transition-delay: 950ms !important;
+}
 
 /* Reduced motion — respect user preference */
 @media (prefers-reduced-motion: reduce) {
