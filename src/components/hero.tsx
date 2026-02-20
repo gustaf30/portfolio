@@ -1,10 +1,14 @@
 "use client";
 
+import Image from "next/image";
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeUp, fadeUpBlur, staggerContainer } from "@/lib/motion";
+import { useTheme } from "@/components/theme-provider";
 
 export function Hero() {
+  const { theme } = useTheme();
+
   return (
     <section
       id="hero"
@@ -19,6 +23,31 @@ export function Hero() {
         animate="show"
         className="relative z-10 flex flex-col items-center"
       >
+        {/* Avatar — crossfade between light/dark photos */}
+        <motion.div
+          variants={fadeUp}
+          className="relative mb-8 h-[180px] w-[180px] overflow-hidden rounded-full border-2 border-border sm:h-[200px] sm:w-[200px]"
+        >
+          <Image
+            src="/images/avatar-light.png"
+            alt="Gustavo Ferraz"
+            width={200}
+            height={200}
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{ opacity: theme === "light" ? 1 : 0 }}
+            priority
+          />
+          <Image
+            src="/images/avatar-dark.png"
+            alt="Gustavo Ferraz"
+            width={200}
+            height={200}
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{ opacity: theme === "dark" ? 1 : 0 }}
+            priority
+          />
+        </motion.div>
+
         {/* Mono tag */}
         <motion.p
           variants={fadeUp}

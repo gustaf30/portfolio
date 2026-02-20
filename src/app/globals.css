@@ -52,6 +52,31 @@ html.light {
   --color-border-accent: #3451d133;
 }
 
+/* Theme transition — cascading top-to-bottom color fade */
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition:
+    background-color 1000ms ease,
+    color 1000ms ease,
+    border-color 1000ms ease,
+    box-shadow 1000ms ease,
+    fill 1000ms ease,
+    stroke 1000ms ease,
+    opacity 2000ms ease !important;
+}
+
+/* Stagger delays per section for top→bottom cascade */
+html.theme-transitioning nav { transition-delay: 0ms !important; }
+html.theme-transitioning #hero { transition-delay: 100ms !important; }
+html.theme-transitioning #about { transition-delay: 250ms !important; }
+html.theme-transitioning #projects { transition-delay: 400ms !important; }
+html.theme-transitioning #skills { transition-delay: 550ms !important; }
+html.theme-transitioning #timeline { transition-delay: 700ms !important; }
+html.theme-transitioning #contact { transition-delay: 850ms !important; }
+html.theme-transitioning footer { transition-delay: 950ms !important; }
+
 /* Reduced motion — respect user preference */
 @media (prefers-reduced-motion: reduce) {
   *,

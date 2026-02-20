@@ -28,10 +28,16 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   const toggle = () => {
     const next = theme === "dark" ? "light" : "dark";
+    const root = document.documentElement;
+
+    root.classList.add("theme-transitioning");
+    root.classList.remove("dark", "light");
+    root.classList.add(next);
     setTheme(next);
-    document.documentElement.classList.remove("dark", "light");
-    document.documentElement.classList.add(next);
     localStorage.setItem("theme", next);
+
+    // Remove transition class after longest delay (950ms) + duration (1000ms)
+    setTimeout(() => root.classList.remove("theme-transitioning"), 2000);
   };
 
   return (
