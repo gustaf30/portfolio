@@ -4,6 +4,7 @@ import { JetBrains_Mono, Bricolage_Grotesque } from "next/font/google";
 import { ThemeProvider, ThemeScript } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { JsonLd } from "@/components/json-ld";
 import { siteConfig } from "@/lib/metadata";
 import "./globals.css";
 
@@ -68,6 +69,7 @@ export default function RootLayout({
     <html lang="pt-BR" suppressHydrationWarning>
       <head>
         <ThemeScript />
+        <JsonLd />
       </head>
       <body
         className={`${geistSans.variable} ${jetbrainsMono.variable} ${bricolage.variable} font-sans antialiased`}
