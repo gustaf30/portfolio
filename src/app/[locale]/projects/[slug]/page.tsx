@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import { setRequestLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { ArrowLeft, Github, ExternalLink } from "lucide-react";
 import { projects } from "@/lib/data";
 import { siteConfig } from "@/lib/metadata";
 
 interface PageProps {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }
 
 export async function generateMetadata({
@@ -37,7 +38,8 @@ export async function generateMetadata({
 }
 
 export default async function ProjectPage({ params }: PageProps) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
 
   const project = projects.find((p) => p.slug === slug);
   if (!project) notFound();
