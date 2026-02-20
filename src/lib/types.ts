@@ -1,21 +1,16 @@
 export interface Project {
   slug: string;
-  title: string;
-  description: string;
   tags: string[];
   github?: string;
   demo?: string;
 }
 
 export interface SkillCategory {
-  name: string;
+  key: string;
   skills: string[];
 }
 
 export interface TimelineEvent {
-  date: string;
-  title: string;
-  description: string;
-  location?: string;
+  key: string;
   type: "education" | "work" | "project";
 }

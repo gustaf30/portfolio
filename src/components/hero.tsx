@@ -5,9 +5,11 @@ import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeUp, fadeUpBlur, staggerContainer } from "@/lib/motion";
 import { useTheme } from "@/components/theme-provider";
+import { useTranslations } from "next-intl";
 
 export function Hero() {
   const { theme } = useTheme();
+  const t = useTranslations("hero");
 
   return (
     <section
@@ -53,7 +55,7 @@ export function Hero() {
           variants={fadeUp}
           className="mb-6 font-mono text-sm tracking-wider text-accent"
         >
-          &lt;full-stack developer /&gt;
+          {t("roleTag")}
         </motion.p>
 
         {/* Name — Bricolage Grotesque display with blur entrance */}
@@ -71,7 +73,7 @@ export function Hero() {
           variants={fadeUp}
           className="mt-6 max-w-md text-lg leading-relaxed text-muted"
         >
-          Construindo soluções web modernas com TypeScript, React e Node.js
+          {t("tagline")}
         </motion.p>
 
         {/* Social links */}
@@ -119,14 +121,14 @@ export function Hero() {
             className="rounded-full bg-accent px-7 py-3 text-sm font-medium text-white transition-colors hover:bg-accent-dark"
             whileTap={{ scale: 0.97 }}
           >
-            Ver Projetos
+            {t("viewProjects")}
           </motion.a>
           <motion.a
             href="#contact"
             className="rounded-full border border-border px-7 py-3 text-sm font-medium text-foreground transition-colors hover:border-accent/40 hover:bg-surface-light"
             whileTap={{ scale: 0.97 }}
           >
-            Entrar em Contato
+            {t("contactCta")}
           </motion.a>
         </motion.div>
 
@@ -135,7 +137,7 @@ export function Hero() {
           variants={fadeUp}
           href="#about"
           className="mt-20 text-faint transition-colors hover:text-muted"
-          aria-label="Rolar para baixo"
+          aria-label={t("scrollDown")}
         >
           <ArrowDown size={18} className="animate-bounce" />
         </motion.a>

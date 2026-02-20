@@ -4,14 +4,17 @@ import { Section } from "@/components/section";
 import { GraduationCap, Gamepad2, Globe, Trophy } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeUp, viewportConfig } from "@/lib/motion";
-
-const interests = [
-  { icon: Trophy, label: "Xadrez" },
-  { icon: Gamepad2, label: "Games" },
-  { icon: Globe, label: "Viagens" },
-];
+import { useTranslations } from "next-intl";
 
 export function About() {
+  const t = useTranslations("about");
+
+  const interests = [
+    { icon: Trophy, label: t("chess") },
+    { icon: Gamepad2, label: t("games") },
+    { icon: Globe, label: t("travel") },
+  ];
+
   return (
     <Section id="about">
       <motion.div
@@ -24,27 +27,19 @@ export function About() {
           variants={fadeUp}
           className="mb-2 font-mono text-sm tracking-wider text-accent"
         >
-          01 — Sobre
+          {t("sectionLabel")}
         </motion.p>
         <motion.h2
           variants={fadeUp}
           className="mb-12 font-display text-3xl font-bold tracking-tight sm:text-4xl"
         >
-          Sobre Mim
+          {t("sectionTitle")}
         </motion.h2>
 
         <div className="grid gap-12 md:grid-cols-2">
           <motion.div variants={fadeUp} className="space-y-4">
-            <p className="leading-relaxed text-foreground/80">
-              Sou um desenvolvedor full stack apaixonado por criar soluções web
-              modernas e performáticas. Tenho experiência com TypeScript, React,
-              Node.js e Python, e busco sempre aplicar boas práticas de
-              engenharia de software em cada projeto.
-            </p>
-            <p className="leading-relaxed text-foreground/80">
-              Atualmente cursando Ciência da Computação na UTFPR (Universidade
-              Tecnológica Federal do Paraná).
-            </p>
+            <p className="leading-relaxed text-foreground/80">{t("bio1")}</p>
+            <p className="leading-relaxed text-foreground/80">{t("bio2")}</p>
           </motion.div>
 
           <motion.div variants={fadeUp} className="space-y-8">
@@ -54,15 +49,15 @@ export function About() {
                 <GraduationCap size={22} className="text-accent" />
               </div>
               <div>
-                <h3 className="font-semibold">Ciência da Computação</h3>
-                <p className="text-sm text-muted">UTFPR — Ponta Grossa, PR</p>
+                <h3 className="font-semibold">{t("degree")}</h3>
+                <p className="text-sm text-muted">{t("university")}</p>
               </div>
             </div>
 
             {/* Interests */}
             <div>
               <h3 className="mb-3 font-mono text-xs font-medium uppercase tracking-widest text-faint">
-                Interesses
+                {t("interestsLabel")}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {interests.map(({ icon: Icon, label }) => (

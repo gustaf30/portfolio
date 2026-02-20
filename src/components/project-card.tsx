@@ -4,8 +4,12 @@ import { ExternalLink, Github } from "lucide-react";
 import { motion } from "framer-motion";
 import type { Project } from "@/lib/types";
 import { fadeUp } from "@/lib/motion";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 export function ProjectCard({ project }: { project: Project }) {
+  const t = useTranslations("projects");
+
   return (
     <motion.div
       variants={fadeUp}
@@ -16,9 +20,11 @@ export function ProjectCard({ project }: { project: Project }) {
       {/* Accent line at top */}
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
 
-      <h3 className="font-display text-xl font-bold">{project.title}</h3>
+      <h3 className="font-display text-xl font-bold">
+        {t(`${project.slug}.title`)}
+      </h3>
       <p className="mt-3 text-sm leading-relaxed text-foreground/70">
-        {project.description}
+        {t(`${project.slug}.description`)}
       </p>
 
       <div className="mt-4 flex flex-wrap gap-2">
@@ -41,7 +47,7 @@ export function ProjectCard({ project }: { project: Project }) {
             className="flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-foreground"
           >
             <Github size={14} />
-            Código
+            {t("codeLink")}
           </a>
         )}
         {project.demo && (
@@ -52,15 +58,15 @@ export function ProjectCard({ project }: { project: Project }) {
             className="flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-foreground"
           >
             <ExternalLink size={14} />
-            Demo
+            {t("demoLink")}
           </a>
         )}
-        <a
+        <Link
           href={`/projects/${project.slug}`}
           className="ml-auto text-sm font-medium text-accent transition-colors hover:text-accent-light"
         >
-          Ver detalhes &rarr;
-        </a>
+          {t("detailsLink")}
+        </Link>
       </div>
     </motion.div>
   );

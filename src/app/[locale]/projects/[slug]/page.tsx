@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { ArrowLeft, Github, ExternalLink } from "lucide-react";
 import { projects } from "@/lib/data";
@@ -13,26 +13,31 @@ interface PageProps {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const project = projects.find((p) => p.slug === slug);
   if (!project) return {};
 
+  const t = await getTranslations({ locale, namespace: "projects" });
+
+  const title = t(`${slug}.title`);
+  const description = t(`${slug}.description`);
+
   return {
-    title: project.title,
-    description: project.description,
+    title,
+    description,
     alternates: {
       canonical: `/projects/${slug}`,
     },
     openGraph: {
-      title: `${project.title} | ${siteConfig.name}`,
-      description: project.description,
+      title: `${title} | ${siteConfig.name}`,
+      description,
       url: `${siteConfig.url}/projects/${slug}`,
       type: "article",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${project.title} | ${siteConfig.name}`,
-      description: project.description,
+      title: `${title} | ${siteConfig.name}`,
+      description,
     },
   };
 }
@@ -43,6 +48,8 @@ export default async function ProjectPage({ params }: PageProps) {
 
   const project = projects.find((p) => p.slug === slug);
   if (!project) notFound();
+
+  const t = await getTranslations("projects");
 
   let Content: React.ComponentType;
   try {
@@ -59,7 +66,7 @@ export default async function ProjectPage({ params }: PageProps) {
         className="mb-8 inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-foreground"
       >
         <ArrowLeft size={16} />
-        Voltar aos projetos
+        {t("backLink")}
       </Link>
 
       <div className="mb-6 flex flex-wrap gap-2">
@@ -82,7 +89,7 @@ export default async function ProjectPage({ params }: PageProps) {
             className="flex items-center gap-2 rounded-full border border-border px-5 py-2 text-sm text-muted transition-all hover:border-accent/30 hover:text-foreground"
           >
             <Github size={16} />
-            Repositório
+            {t("repositoryLink")}
           </a>
         )}
         {project.demo && (
@@ -93,7 +100,7 @@ export default async function ProjectPage({ params }: PageProps) {
             className="flex items-center gap-2 rounded-full bg-accent px-5 py-2 text-sm text-white transition-colors hover:bg-accent-dark"
           >
             <ExternalLink size={16} />
-            Demo
+            {t("demoLink")}
           </a>
         )}
       </div>

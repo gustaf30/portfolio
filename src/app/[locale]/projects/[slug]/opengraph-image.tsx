@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { projects } from "@/lib/data";
+import { getTranslations } from "next-intl/server";
 
 export const alt = "Project preview";
 export const size = { width: 1200, height: 630 };
@@ -8,9 +9,9 @@ export const contentType = "image/png";
 export default async function OgImage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const project = projects.find((p) => p.slug === slug);
   if (!project) {
     return new ImageResponse(
@@ -25,6 +26,8 @@ export default async function OgImage({
       { ...size }
     );
   }
+
+  const t = await getTranslations({ locale, namespace: "projects" });
 
   return new ImageResponse(
     <div
@@ -49,7 +52,7 @@ export default async function OgImage({
           marginBottom: "16px",
         }}
       >
-        Gustavo Ferraz — Projetos
+        Gustavo Ferraz — {t("sectionTitle")}
       </div>
       <div
         style={{
@@ -59,7 +62,7 @@ export default async function OgImage({
           marginBottom: "24px",
         }}
       >
-        {project.title}
+        {t(`${slug}.title`)}
       </div>
       <div
         style={{
@@ -70,7 +73,7 @@ export default async function OgImage({
           marginBottom: "32px",
         }}
       >
-        {project.description}
+        {t(`${slug}.description`)}
       </div>
       <div style={{ display: "flex", gap: "12px" }}>
         {project.tags.map((tag) => (

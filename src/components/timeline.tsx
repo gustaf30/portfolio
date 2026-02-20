@@ -5,6 +5,7 @@ import { timeline } from "@/lib/data";
 import { GraduationCap, Briefcase, Code2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeUp, viewportConfig } from "@/lib/motion";
+import { useTranslations } from "next-intl";
 
 const typeIcons = {
   education: GraduationCap,
@@ -13,6 +14,8 @@ const typeIcons = {
 };
 
 export function Timeline() {
+  const t = useTranslations("timeline");
+
   return (
     <Section id="timeline">
       <motion.div
@@ -25,13 +28,13 @@ export function Timeline() {
           variants={fadeUp}
           className="mb-2 font-mono text-sm tracking-wider text-accent"
         >
-          04 — Experiência
+          {t("sectionLabel")}
         </motion.p>
         <motion.h2
           variants={fadeUp}
           className="mb-12 font-display text-3xl font-bold tracking-tight sm:text-4xl"
         >
-          Experiência
+          {t("sectionTitle")}
         </motion.h2>
 
         <div className="relative ml-4 border-l border-border pl-8">
@@ -50,14 +53,18 @@ export function Timeline() {
 
                 {/* Content */}
                 <span className="mb-1 inline-block font-mono text-xs tracking-wider text-faint">
-                  {event.date}
+                  {t(`events.${event.key}.date`)}
                 </span>
-                <h3 className="text-lg font-semibold">{event.title}</h3>
-                {event.location && (
-                  <span className="text-xs text-muted">{event.location}</span>
+                <h3 className="text-lg font-semibold">
+                  {t(`events.${event.key}.title`)}
+                </h3>
+                {t.has(`events.${event.key}.location`) && (
+                  <span className="text-xs text-muted">
+                    {t(`events.${event.key}.location`)}
+                  </span>
                 )}
                 <p className="mt-1 text-sm leading-relaxed text-foreground/70">
-                  {event.description}
+                  {t(`events.${event.key}.description`)}
                 </p>
               </motion.div>
             );

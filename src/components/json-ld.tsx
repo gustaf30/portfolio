@@ -1,12 +1,16 @@
+import { getTranslations } from "next-intl/server";
 import { siteConfig } from "@/lib/metadata";
 
-export function JsonLd() {
+export async function JsonLd() {
+  const tMeta = await getTranslations("metadata");
+  const tJsonLd = await getTranslations("jsonLd");
+
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: siteConfig.name,
     url: siteConfig.url,
-    jobTitle: "Desenvolvedor Full Stack",
+    jobTitle: tJsonLd("jobTitle"),
     sameAs: [siteConfig.github, siteConfig.linkedin],
     email: siteConfig.email,
     knowsAbout: ["TypeScript", "React", "Next.js", "Node.js", "PostgreSQL"],
@@ -17,7 +21,7 @@ export function JsonLd() {
     "@type": "WebSite",
     name: siteConfig.name,
     url: siteConfig.url,
-    description: siteConfig.description,
+    description: tMeta("description"),
     author: {
       "@type": "Person",
       name: siteConfig.name,

@@ -1,6 +1,9 @@
 import { Github, Linkedin, Mail } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 
-export function Footer() {
+export async function Footer() {
+  const t = await getTranslations("footer");
+
   return (
     <footer className="border-t border-border py-10">
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 px-4 sm:flex-row sm:justify-between sm:px-6 lg:px-8">
@@ -9,7 +12,7 @@ export function Footer() {
             GF<span className="text-accent-light">.</span>
           </span>
           <span className="text-sm text-faint">
-            &copy; {new Date().getFullYear()} Gustavo Ferraz
+            {t("copyright", { year: new Date().getFullYear() })}
           </span>
         </div>
 

@@ -13,6 +13,7 @@ import {
 import { motion } from "framer-motion";
 import { fadeUp, viewportConfig } from "@/lib/motion";
 import emailjs from "@emailjs/browser";
+import { useTranslations } from "next-intl";
 
 type FormStatus = "idle" | "sending" | "sent" | "error";
 
@@ -22,6 +23,7 @@ const EMAILJS_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 const isConfigured = !!(EMAILJS_SERVICE && EMAILJS_TEMPLATE && EMAILJS_KEY);
 
 export function Contact() {
+  const t = useTranslations("contact");
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<FormStatus>("idle");
   const [cooldown, setCooldown] = useState(false);
@@ -80,22 +82,20 @@ export function Contact() {
           variants={fadeUp}
           className="mb-2 font-mono text-sm tracking-wider text-accent"
         >
-          05 — Contato
+          {t("sectionLabel")}
         </motion.p>
         <motion.h2
           variants={fadeUp}
           className="mb-12 font-display text-3xl font-bold tracking-tight sm:text-4xl"
         >
-          Contato
+          {t("sectionTitle")}
         </motion.h2>
 
         <div className="grid gap-12 md:grid-cols-2">
           {/* Info */}
           <motion.div variants={fadeUp} className="space-y-6">
             <p className="leading-relaxed text-foreground/80">
-              Interessado em trabalhar juntos? Entre em contato por e-mail ou
-              pelas redes sociais. Estou disponível para oportunidades de
-              trabalho remoto ou híbrido.
+              {t("description")}
             </p>
 
             <div className="space-y-4">
@@ -115,12 +115,8 @@ export function Contact() {
                   <MapPin size={18} className="text-accent" />
                 </div>
                 <div className="flex flex-col gap-0.5">
-                  <span className="text-sm text-muted">
-                    Ponta Grossa, PR — Brasil
-                  </span>
-                  <span className="text-sm text-muted">
-                    Nova Odessa, SP — Brasil
-                  </span>
+                  <span className="text-sm text-muted">{t("location1")}</span>
+                  <span className="text-sm text-muted">{t("location2")}</span>
                 </div>
               </div>
             </div>
@@ -148,7 +144,7 @@ export function Contact() {
                 htmlFor="name"
                 className="mb-1.5 block text-sm font-medium"
               >
-                Nome
+                {t("nameLabel")}
               </label>
               <input
                 type="text"
@@ -157,7 +153,7 @@ export function Contact() {
                 required
                 disabled={status === "sending"}
                 className="w-full rounded-lg border border-border bg-surface px-4 py-2.5 text-sm text-foreground placeholder-faint outline-none transition-colors focus:border-accent disabled:opacity-50"
-                placeholder="Seu nome"
+                placeholder={t("namePlaceholder")}
               />
             </div>
             <div>
@@ -165,7 +161,7 @@ export function Contact() {
                 htmlFor="email"
                 className="mb-1.5 block text-sm font-medium"
               >
-                E-mail
+                {t("emailLabel")}
               </label>
               <input
                 type="email"
@@ -174,7 +170,7 @@ export function Contact() {
                 required
                 disabled={status === "sending"}
                 className="w-full rounded-lg border border-border bg-surface px-4 py-2.5 text-sm text-foreground placeholder-faint outline-none transition-colors focus:border-accent disabled:opacity-50"
-                placeholder="seu@email.com"
+                placeholder={t("emailPlaceholder")}
               />
             </div>
             <div>
@@ -182,7 +178,7 @@ export function Contact() {
                 htmlFor="message"
                 className="mb-1.5 block text-sm font-medium"
               >
-                Mensagem
+                {t("messageLabel")}
               </label>
               <textarea
                 id="message"
@@ -191,7 +187,7 @@ export function Contact() {
                 required
                 disabled={status === "sending"}
                 className="w-full resize-none rounded-lg border border-border bg-surface px-4 py-2.5 text-sm text-foreground placeholder-faint outline-none transition-colors focus:border-accent disabled:opacity-50"
-                placeholder="Sua mensagem..."
+                placeholder={t("messagePlaceholder")}
               />
             </div>
 
@@ -203,12 +199,12 @@ export function Contact() {
               {status === "sending" ? (
                 <>
                   <Loader2 size={14} className="animate-spin" />
-                  Enviando...
+                  {t("sending")}
                 </>
               ) : (
                 <>
                   <Send size={14} />
-                  Enviar Mensagem
+                  {t("sendMessage")}
                 </>
               )}
             </button>
@@ -217,22 +213,18 @@ export function Contact() {
             {status === "sent" && (
               <p className="flex items-center gap-2 text-sm text-green-400">
                 <CheckCircle2 size={16} />
-                Mensagem enviada com sucesso!
+                {t("successMessage")}
               </p>
             )}
             {status === "error" && (
               <p className="flex items-center gap-2 text-sm text-red-400">
                 <AlertCircle size={16} />
-                {isConfigured
-                  ? "Erro ao enviar. Tente novamente."
-                  : "Envio de e-mail não configurado. Entre em contato diretamente."}
+                {isConfigured ? t("errorMessage") : t("notConfiguredError")}
               </p>
             )}
             {status === "idle" && !cooldown && (
               <p className="text-xs text-faint">
-                {isConfigured
-                  ? "Sua mensagem será enviada por e-mail."
-                  : "Envio funcional será ativado em breve."}
+                {isConfigured ? t("infoConfigured") : t("infoNotConfigured")}
               </p>
             )}
           </motion.form>

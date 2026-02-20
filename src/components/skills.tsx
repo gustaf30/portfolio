@@ -4,8 +4,11 @@ import { Section } from "@/components/section";
 import { skillCategories } from "@/lib/data";
 import { motion } from "framer-motion";
 import { fadeUp, viewportConfig } from "@/lib/motion";
+import { useTranslations } from "next-intl";
 
 export function Skills() {
+  const t = useTranslations("skills");
+
   return (
     <Section id="skills">
       <motion.div
@@ -18,24 +21,24 @@ export function Skills() {
           variants={fadeUp}
           className="mb-2 font-mono text-sm tracking-wider text-accent"
         >
-          03 — Skills
+          {t("sectionLabel")}
         </motion.p>
         <motion.h2
           variants={fadeUp}
           className="mb-12 font-display text-3xl font-bold tracking-tight sm:text-4xl"
         >
-          Skills & Tecnologias
+          {t("sectionTitle")}
         </motion.h2>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {skillCategories.map((category) => (
             <motion.div
-              key={category.name}
+              key={category.key}
               variants={fadeUp}
               className="rounded-xl border border-border bg-surface/50 p-6"
             >
               <h3 className="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent">
-                {category.name}
+                {t(`categories.${category.key}`)}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (

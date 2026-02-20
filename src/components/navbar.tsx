@@ -3,19 +3,21 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { Menu, X, ArrowUp } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { useTranslations } from "next-intl";
 
-const navLinks = [
-  { label: "Início", href: "#hero" },
-  { label: "Sobre", href: "#about" },
-  { label: "Projetos", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Experiência", href: "#timeline" },
-  { label: "Contato", href: "#contact" },
+const navKeys = [
+  { key: "home", href: "#hero" },
+  { key: "about", href: "#about" },
+  { key: "projects", href: "#projects" },
+  { key: "skills", href: "#skills" },
+  { key: "experience", href: "#timeline" },
+  { key: "contact", href: "#contact" },
 ];
 
-const sectionIds = navLinks.map((l) => l.href.slice(1));
+const sectionIds = navKeys.map((l) => l.href.slice(1));
 
 export function Navbar() {
+  const t = useTranslations("nav");
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
@@ -98,7 +100,7 @@ export function Navbar() {
       <nav
         ref={menuRef}
         role="navigation"
-        aria-label="Navegação principal"
+        aria-label={t("mainNavAriaLabel")}
         className={`fixed top-2 left-1/2 z-50 w-[calc(100%-1rem)] max-w-2xl -translate-x-1/2 rounded-2xl border transition-all duration-300 md:top-4 md:w-[calc(100%-2rem)] md:rounded-full ${
           scrolled
             ? "border-border/60 bg-surface/80 shadow-lg shadow-black/20 backdrop-blur-xl"
@@ -115,7 +117,7 @@ export function Navbar() {
 
           {/* Desktop links */}
           <ul className="hidden gap-1 md:flex">
-            {navLinks.map((link) => {
+            {navKeys.map((link) => {
               const isActive = activeSection === link.href.slice(1);
               return (
                 <li key={link.href}>
@@ -128,7 +130,7 @@ export function Navbar() {
                         : "text-muted hover:bg-surface-light hover:text-foreground"
                     }`}
                   >
-                    {link.label}
+                    {t(link.key)}
                   </a>
                 </li>
               );
@@ -142,7 +144,7 @@ export function Navbar() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="flex h-8 w-8 items-center justify-center rounded-full text-foreground transition-colors hover:bg-surface-light md:hidden"
-              aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+              aria-label={isOpen ? t("closeMenu") : t("openMenu")}
               aria-expanded={isOpen}
             >
               {isOpen ? <X size={18} /> : <Menu size={18} />}
@@ -154,7 +156,7 @@ export function Navbar() {
         {isOpen && (
           <div className="border-t border-border/40 px-5 pb-4 pt-2 md:hidden">
             <ul className="space-y-1">
-              {navLinks.map((link) => {
+              {navKeys.map((link) => {
                 const isActive = activeSection === link.href.slice(1);
                 return (
                   <li key={link.href}>
@@ -168,7 +170,7 @@ export function Navbar() {
                           : "text-muted hover:bg-surface-light hover:text-foreground"
                       }`}
                     >
-                      {link.label}
+                      {t(link.key)}
                     </a>
                   </li>
                 );
@@ -186,7 +188,7 @@ export function Navbar() {
             ? "translate-y-0 opacity-100"
             : "pointer-events-none translate-y-4 opacity-0"
         }`}
-        aria-label="Voltar ao topo"
+        aria-label={t("backToTop")}
       >
         <ArrowUp size={18} />
       </a>
