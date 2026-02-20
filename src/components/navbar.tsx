@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { Menu, X, ArrowUp } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { LocaleSwitcher } from "@/components/locale-switcher";
 import { useTranslations } from "next-intl";
 
 const navKeys = [
@@ -138,6 +139,7 @@ export function Navbar() {
           </ul>
 
           <div className="flex items-center gap-1">
+            <LocaleSwitcher />
             <ThemeToggle />
 
             {/* Mobile toggle */}
