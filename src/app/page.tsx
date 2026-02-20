@@ -1,8 +1,19 @@
+import { Hero } from "@/components/hero";
+import { About } from "@/components/about";
+import { Projects } from "@/components/projects";
+import { Skills } from "@/components/skills";
+import { Timeline } from "@/components/timeline";
+import { Contact } from "@/components/contact";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-4">
-      <h1 className="text-4xl font-bold tracking-tight">Gustavo Ferraz</h1>
-      <p className="text-muted font-mono text-sm">Portfolio em construção...</p>
+    <main id="main-content">
+      <Hero />
+      <About />
+      <Projects />
+      <Skills />
+      <Timeline />
+      <Contact />
     </main>
   );
 }
