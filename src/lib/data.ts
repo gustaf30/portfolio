@@ -57,5 +57,4 @@ export const timeline: TimelineEvent[] = [
 export const socialLinks = [
   { name: "GitHub", url: "https://github.com/gustaf30" },
   { name: "LinkedIn", url: "https://www.linkedin.com/in/gustavo-p-ferraz/" },
-  { name: "Email", url: "mailto:gustavoferraz405@gmail.com" },
 ];

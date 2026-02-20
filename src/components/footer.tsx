@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 export async function Footer() {
@@ -34,13 +34,6 @@ export async function Footer() {
             aria-label="LinkedIn"
           >
             <Linkedin size={16} />
-          </a>
-          <a
-            href="mailto:gustavoferraz405@gmail.com"
-            className="rounded-full border border-border p-2 text-muted transition-all hover:border-accent/30 hover:text-foreground"
-            aria-label="Email"
-          >
-            <Mail size={16} />
           </a>
         </div>
       </div>

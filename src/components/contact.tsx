@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Section } from "@/components/section";
 import {
   MapPin,
@@ -12,19 +12,12 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeUp, viewportConfig } from "@/lib/motion";
-import emailjs from "@emailjs/browser";
 import { useTranslations } from "next-intl";
 
 type FormStatus = "idle" | "sending" | "sent" | "error";
 
-const EMAILJS_SERVICE = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-const EMAILJS_TEMPLATE = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-const EMAILJS_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-const isConfigured = !!(EMAILJS_SERVICE && EMAILJS_TEMPLATE && EMAILJS_KEY);
-
 export function Contact() {
   const t = useTranslations("contact");
-  const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<FormStatus>("idle");
   const [cooldown, setCooldown] = useState(false);
 
@@ -41,20 +34,24 @@ export function Contact() {
       return;
     }
 
-    if (!isConfigured) {
-      setStatus("error");
-      return;
-    }
-
     setStatus("sending");
 
     try {
-      await emailjs.sendForm(
-        EMAILJS_SERVICE!,
-        EMAILJS_TEMPLATE!,
-        form,
-        EMAILJS_KEY!
-      );
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          message: formData.get("message"),
+          _gotcha: formData.get("_gotcha"),
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error("Request failed");
+      }
+
       setStatus("sent");
       form.reset();
 
@@ -124,7 +121,6 @@ export function Contact() {
 
           {/* Form */}
           <motion.form
-            ref={formRef}
             variants={fadeUp}
             onSubmit={handleSubmit}
             className="space-y-4"
@@ -219,12 +215,12 @@ export function Contact() {
             {status === "error" && (
               <p className="flex items-center gap-2 text-sm text-red-400">
                 <AlertCircle size={16} />
-                {isConfigured ? t("errorMessage") : t("notConfiguredError")}
+                {t("errorMessage")}
               </p>
             )}
             {status === "idle" && !cooldown && (
               <p className="text-xs text-faint">
-                {isConfigured ? t("infoConfigured") : t("infoNotConfigured")}
+                {t("infoConfigured")}
               </p>
             )}
           </motion.form>

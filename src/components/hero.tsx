@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
+import { Github, Linkedin, ArrowDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeUp, fadeUpBlur, staggerContainer } from "@/lib/motion";
 import { useTheme } from "@/components/theme-provider";
@@ -100,16 +100,6 @@ export function Hero() {
             aria-label="LinkedIn"
           >
             <Linkedin
-              size={20}
-              className="transition-transform group-hover:scale-110"
-            />
-          </a>
-          <a
-            href="mailto:gustavoferraz405@gmail.com"
-            className="group rounded-full border border-border p-3 text-muted transition-all hover:border-accent/40 hover:text-foreground"
-            aria-label="Email"
-          >
-            <Mail
               size={20}
               className="transition-transform group-hover:scale-110"
             />
